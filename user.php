@@ -6,11 +6,12 @@ if(isset($_POST['submit'])){
   $mobile=$_POST['mobile'];
   $password=$_POST['password'];
 
-  $sql = "insert into `test` (name, email, mobile, password) values('$name', '$email', '$mobile', '$password')";
+  $hashedPasswordDB = password_hash($password, PASSWORD_DEFAULT);
+
+  $sql = "insert into `users` (name, email, mobile, password) values('$name', '$email', '$mobile', '$hashedPasswordDB')";
   $result=mysqli_query($con,$sql);
 
   if($result){
-    /* echo "Data inserted successfully"; */
     header("location:display.php");
   }else{
     die(mysqli_error($con));

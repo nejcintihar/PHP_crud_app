@@ -2,7 +2,7 @@
 include 'connect.php';
 
 $id=$_GET['updateid'];
-$sql="select * from `test` where id=$id";
+$sql="select * from `users` where id=$id";
 $result=mysqli_query($con,$sql);
 $row=mysqli_fetch_assoc($result);
 $name=$row['name'];
@@ -16,11 +16,12 @@ if(isset($_POST['submit'])){
   $mobile=$_POST['mobile'];
   $password=$_POST['password'];
 
-  $sql = "update `test` set id=$id, name='$name', email='$email', mobile='$mobile', password='$password' where id=$id";
+  $hashedPasswordDB = password_hash($password, PASSWORD_DEFAULT);
+
+  $sql = "update `users` set id=$id, name='$name', email='$email', mobile='$mobile', password='$hashedPasswordDB' where id=$id";
   $result=mysqli_query($con,$sql);
 
   if($result){
-    /* echo "Data updated successfully"; */
     header("location:display.php");
   }else{
     die(mysqli_error($con));
