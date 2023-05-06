@@ -1,6 +1,6 @@
 # PHP CRUD APPLICATION
 
-![image](https://user-images.githubusercontent.com/63637814/236637457-41b3929f-09b6-4e40-8510-142544fd07bc.png)
+![image](https://user-images.githubusercontent.com/63637814/236648691-aba9e497-deb9-483a-938c-21bb163fe9ee.png)
 
 To run this application you will need to install XAMPP.
 
